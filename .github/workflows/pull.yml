@@ -94,6 +94,7 @@ jobs:
         with:
           toolchain: ${{ env.RUST_TOOLCHAIN }}
           override: true
+      - uses: Swatinem/rust-cache@v2
       - run: rustup component add clippy
       - run: cargo clippy --locked --all-targets -- --deny warnings
 
@@ -106,4 +107,5 @@ jobs:
         with:
           toolchain: ${{ env.RUST_TOOLCHAIN }}
           override: true
+      - uses: Swatinem/rust-cache@v2
       - run: cargo test --locked
